@@ -2,6 +2,7 @@ CREATE TABLE user
 (
   userid INT NOT NULL,
   username VARCHAR(50),
+  userlastname VARCHAR(50),
   dob DATE,
   PRIMARY KEY(userid)
 );
@@ -20,17 +21,32 @@ CREATE TABLE drinkmenu
   drinkname VARCHAR(50),
   drinkprice INT,
   PRIMARY KEY(drinkid)
-)
+);
 
 CREATE TABLE employee
 (
   empid INT NOT NULL,
   empname VARCHAR(50),
-  PRIMARY KEY(drinkid)
-)
+  PRIMARY KEY(empid)
+);
 
 CREATE TABLE invoice
 (
   invid INT NOT NULL,
   invdate DATE,
-)
+  empid INT NOT NULL,
+  empname VARCHAR(50),
+  userid INT NOT NULL,
+  username VARCHAR(50),
+  foodid INT NOT NULL,
+  foodname VARCHAR(50),
+  foodprice INT,
+  drinkid INT NOT NULL,
+  drinkname VARCHAR(50),
+  drinkprice INT,
+  PRIMARY KEY(invid),
+  FOREIGN KEY(empid) REFERENCES employee(empid),
+  FOREIGN KEY(userid) REFERENCES user(userid),
+  FOREIGN KEY(foodid) REFERENCES foodmenu(foodid),
+  FOREIGN KEY(drinkid) REFERENCES drinkmenu(drinkid)
+);
