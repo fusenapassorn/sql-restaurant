@@ -1,0 +1,36 @@
+CREATE TABLE user
+(
+  userid INT NOT NULL,
+  username VARCHAR(50),
+  dob DATE,
+  PRIMARY KEY(userid)
+);
+
+CREATE TABLE foodmenu
+(
+  foodid INT NOT NULL,
+  foodname VARCHAR(50),
+  foodprice INT,
+  PRIMARY KEY(foodid)
+);
+
+CREATE TABLE drinkmenu
+(
+  drinkid INT NOT NULL,
+  drinkname VARCHAR(50),
+  drinkprice INT,
+  PRIMARY KEY(drinkid)
+)
+
+CREATE TABLE employee
+(
+  empid INT NOT NULL,
+  empname VARCHAR(50),
+  PRIMARY KEY(drinkid)
+)
+
+CREATE TABLE invoice
+(
+  invid INT NOT NULL,
+  invdate DATE,
+)
